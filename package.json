@@ -1,0 +1,34 @@
+{
+  "name": "mern_shopping_cart",
+  "version": "1.0.0",
+  "description": "shopping list view with MERN stack",
+  "main": "index.js",
+  "scripts": {
+    "start" : "babel-node server.js",
+    "server" : "nodemon server.js --exec babel-node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mthang1801/mern_shopping_cart.git"
+  },
+  "author": "mvt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mthang1801/mern_shopping_cart/issues"
+  },
+  "homepage": "https://github.com/mthang1801/mern_shopping_cart#readme",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.1.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.7"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.0",
+    "nodemon": "^2.0.2"
+  }
+}
