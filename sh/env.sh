@@ -6,6 +6,4 @@ export DB_NAME=mearn_shopping
 export DB_USER=""
 export DB_PASS=""
 
-#config server
-export APP_HOST=localhost
-export APP_PORT=5000
+
