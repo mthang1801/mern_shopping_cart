@@ -7,6 +7,7 @@ import { getItems, deleteItem } from "../actions/itemAction";
 class ShoppingList extends Component {
   
   componentDidMount(){
+    console.log(this.props.getItems());
     this.props.getItems();
   }
   onDelete = id => {
