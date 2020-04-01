@@ -8,4 +8,4 @@ export DB_PASS=""
 
 #config server
 export APP_HOST=localhost
-export APP_PORT=3000
+export APP_PORT=5000
