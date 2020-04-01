@@ -8,7 +8,7 @@ const dbName = process.env.DB_NAME;
 
 
 let connectDB = () => {
-  const dbURI = `${dbConnect}://${dbHost}:${dbPort}/${dbName}`;
+  const dbURI = require("./keys").mongoURI;
   mongoose.connect(dbURI, { useUnifiedTopology: true , useNewUrlParser: true })
     .then( () => console.log("MongoDB has connected"))
     .catch( () => console.log("MongoDB connected fail"));
