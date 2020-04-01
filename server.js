@@ -2,6 +2,7 @@ import express from "express";
 import connectDB from "./config/connectDB";
 import bodyParser from "body-parser";
 import items from "./routes/api/items";
+import users from "./routes/api/users";
 import path from "path";
 const app = express();
 //connect Database
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 //use routes
 app.use("/api/items", items);
+app.use("/api/users", users);
 
 //Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
