@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "shopping list view with MERN stack",
   "main": "index.js",
-  "scripts": {   
-    "client-install" : "npm init --prefix client",
-    "start" : "babel-node server.js",
-    "server" : "nodemon server.js --exec babel-node",
-    "client" : "npm start --prefix client",
-    "dev" : "concurrently \"npm run server\" \"npm run client\""
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "start": "babel-node server.js",
+    "server": "nodemon server.js --exec babel-node",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client & npm run build --prefix client"
   },
   "repository": {
     "type": "git",
@@ -21,10 +22,11 @@
   },
   "homepage": "https://github.com/mthang1801/mern_shopping_cart#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "bluebird": "^3.7.2",
-    "body-parser": "^1.19.0",
     "concurrently": "^5.1.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.7"
   },
   "devDependencies": {
