@@ -3,19 +3,22 @@ import connectDB from "./config/connectDB";
 import bodyParser from "body-parser";
 import items from "./routes/api/items";
 import users from "./routes/api/users";
+import auth from "./routes/api/auth";
 import path from "path";
+
 const app = express();
 //connect Database
 connectDB();
 
 //body parser middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 
 //use routes
 app.use("/api/items", items);
 app.use("/api/users", users);
+app.use("/api/auth", auth);
 
 //Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
