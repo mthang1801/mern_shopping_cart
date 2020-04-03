@@ -6,16 +6,17 @@ import { connect } from "react-redux";
 import { getItems, deleteItem } from "../actions/itemAction";
 class ShoppingList extends Component {
   
-  componentDidMount(){
-    console.log(this.props.getItems());
-    this.props.getItems();
-  }
   onDelete = id => {
     this.props.deleteItem(id);
   };
 
+  componentDidMount(){
+    this.props.getItems();
+  }
+
   render() {
-    const { items } = this.props.listItems;     
+    const { items } = this.props.listItems;   
+    const {isAuthenticated}   = this.props; 
     return (
       <Container>        
         <ListGroup>
@@ -23,14 +24,15 @@ class ShoppingList extends Component {
             {items.map(item => (
               <CSSTransition key={item._id} timeout={500} classNames="fade">
                 <ListGroupItem>
-                  <Button 
+                  {isAuthenticated ?  <Button 
                     className="remove-btn" 
                     color="danger" 
                     size="small"
                     onClick={this.onDelete.bind(this,item._id)}
                     >
                     &times;
-                  </Button>
+                  </Button> : null }
+                 
                   {item.name}
                 </ListGroupItem>
               </CSSTransition>
@@ -43,7 +45,8 @@ class ShoppingList extends Component {
 }
 
 const mapStateToProps = state => ({
-  listItems : state.listItems
+  listItems : state.listItems,
+  isAuthenticated : state.auth.isAuthenticated
 });
 
 ShoppingList.propTypes = {

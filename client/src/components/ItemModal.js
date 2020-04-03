@@ -38,11 +38,15 @@ class ItemModal extends Component {
     this.toggle();
   }
   render() {
+    const {isAuthenticated} = this.props;
     return (
       <Container>
+      {isAuthenticated ? (
         <Button color="dark" className="mb-3" onClick={this.toggle}>
           Add item
         </Button>
+      ) : null}
+       
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Add Item To Shopping List</ModalHeader>
           <ModalBody>
@@ -68,7 +72,8 @@ class ItemModal extends Component {
 }
 
 const mapStateToProps = state => ({
-  listItems : state.listItems
+  listItems : state.listItems,
+  isAuthenticated : state.auth.isAuthenticated
 });
 
 
